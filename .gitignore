@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Build results
+Debug/
+Release/
+
+# NuGet
+packages/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
