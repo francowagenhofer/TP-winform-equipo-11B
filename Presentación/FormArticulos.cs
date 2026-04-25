@@ -48,5 +48,14 @@ namespace Presentación
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FormArticulo alta = new FormArticulo();
+            alta.ShowDialog();
+        }
+
+
+
     }
 }
