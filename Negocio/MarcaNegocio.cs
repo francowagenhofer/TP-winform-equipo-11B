@@ -8,5 +8,13 @@ namespace Negocio
 {
     public class MarcaNegocio
     {
+        // LISTAR
+
+        // AGREGAR
+
+        // MODIFICAR
+
+        // ELIMINAR
+
     }
 }

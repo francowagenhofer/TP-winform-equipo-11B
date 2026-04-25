@@ -8,5 +8,13 @@ namespace Negocio
 {
     public class CategoriaNegocio
     {
+        // LISTAR
+
+        // AGREGAR
+
+        // MODIFICAR
+
+        // ELIMINAR
+
     }
 }
