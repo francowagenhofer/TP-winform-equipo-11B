@@ -304,6 +304,7 @@
             this.cbCampo.Size = new System.Drawing.Size(164, 33);
             this.cbCampo.TabIndex = 0;
             this.cbCampo.Text = "Campo";
+            this.cbCampo.SelectedIndexChanged += new System.EventHandler(this.cbCampo_SelectedIndexChanged);
             // 
             // cbCriterio
             // 

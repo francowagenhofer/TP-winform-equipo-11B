@@ -10,32 +10,30 @@ namespace Negocio
 {
     public class CategoriaNegocio
     {
-        public List<Categoria> ListarCategorias()
+        public List<Categoria> listarCategorias()
         {
             AccesoDatos datos = new AccesoDatos();
             List<Categoria> lista = new List<Categoria>();
 
             try
             {
-                datos.setearConsulta("Select Id as IdCategoria, Descripcion as Categoria from CATEGORIAS");
+                datos.setearConsulta("Select Id as IdCategoria, Descripcion as Categoria From CATEGORIAS");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Categoria aux = new Categoria();
-
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Id = (int)datos.Lector["IdCategoria"];
+                    aux.Descripcion = (string)datos.Lector["Categoria"];
 
                     lista.Add(aux);
                 }
 
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             finally
             {
@@ -43,7 +41,7 @@ namespace Negocio
             }
         }
 
-        public void AgregarCategoria(Categoria nueva)
+        public void agregarCategoria(Categoria nueva)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -58,7 +56,7 @@ namespace Negocio
             }
         }
 
-        public void ModificarCategoria(Categoria categoria)
+        public void modificarCategoria(Categoria categoria)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -74,7 +72,7 @@ namespace Negocio
             }
         }
 
-        public void EliminarCategoria(int id)
+        public void eliminarCategoria(int id)
         {
             AccesoDatos datos = new AccesoDatos();
             try

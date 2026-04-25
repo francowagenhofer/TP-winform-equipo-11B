@@ -80,12 +80,20 @@ namespace Presentación
         {
             FormArticulo alta = new FormArticulo();
             alta.ShowDialog();
+            cargar();
         }
 
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            Articulo seleccionado;
 
+            seleccionado= (Articulo)dgvArticulos.CurrentRow?.DataBoundItem;
+
+            FormArticulo modificar = new FormArticulo(seleccionado);
+            modificar.ShowDialog();
+
+            cargar();
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)
@@ -100,6 +108,10 @@ namespace Presentación
         private void tbFiltroRapido_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }
