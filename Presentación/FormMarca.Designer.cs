@@ -101,7 +101,6 @@
             this.dgvMarcas.Size = new System.Drawing.Size(501, 223);
             this.dgvMarcas.StandardTab = true;
             this.dgvMarcas.TabIndex = 0;
-            this.dgvMarcas.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -250,6 +249,7 @@
             this.tbFiltroRapido.Size = new System.Drawing.Size(326, 30);
             this.tbFiltroRapido.TabIndex = 2;
             this.tbFiltroRapido.Text = "Buscar Marca";
+            this.tbFiltroRapido.TextChanged += new System.EventHandler(this.tbFiltroRapido_TextChanged);
             // 
             // btnLimpiarFiltro
             // 

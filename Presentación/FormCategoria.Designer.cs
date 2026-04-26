@@ -249,6 +249,7 @@
             this.tbFiltroRapido.Size = new System.Drawing.Size(326, 30);
             this.tbFiltroRapido.TabIndex = 2;
             this.tbFiltroRapido.Text = "Buscar Categoría";
+            this.tbFiltroRapido.TextChanged += new System.EventHandler(this.tbFiltroRapido_TextChanged);
             // 
             // btnLimpiarFiltro
             // 

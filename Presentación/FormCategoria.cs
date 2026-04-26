@@ -23,16 +23,17 @@ namespace Presentación
 
         private void FormCategoria_Load(object sender, EventArgs e)
         {
-            cargar(); 
+            cargar();
         }
-       
+
         private void cargar()
         {
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
             try
             {
-                dgvCategorias.DataSource = categoriaNegocio.listarCategorias();
+                listaCategoria = categoriaNegocio.listarCategorias();
+                dgvCategorias.DataSource = listaCategoria;
                 dgvCategorias.Columns["Id"].ReadOnly = true;
             }
             catch (Exception ex)
@@ -99,6 +100,24 @@ namespace Presentación
             tbFiltroRapido.Clear();
             dgvCategorias.DataSource = null;
             dgvCategorias.DataSource = listaCategoria;
+        }
+
+        private void tbFiltroRapido_TextChanged(object sender, EventArgs e)
+        {
+            List<Categoria> listaFiltrada;
+            string filtro = tbFiltroRapido.Text;
+
+            if (filtro.Length >= 1)
+            {
+                listaFiltrada = listaCategoria.FindAll(x => x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Id.ToString().Contains(filtro.Normalize()));
+            }
+            else
+            {
+                listaFiltrada = listaCategoria;
+            }
+
+            dgvCategorias.DataSource = null;
+            dgvCategorias.DataSource = listaFiltrada;
         }
     }
 }

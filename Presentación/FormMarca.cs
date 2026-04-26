@@ -112,9 +112,22 @@ namespace Presentación
             dgvMarcas.DataSource = listaMarca;
         }
 
-        private void dgvMarcas_SelectionChanged(object sender, EventArgs e)
+        private void tbFiltroRapido_TextChanged(object sender, EventArgs e)
         {
+            List<Marca> listaFiltrada;
+            string filtro = tbFiltroRapido.Text;
 
+            if (filtro.Length >= 1)
+            {
+               listaFiltrada = listaMarca.FindAll(x =>  x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Id.ToString().Contains(filtro.Normalize()));
+            }
+            else
+            {
+                listaFiltrada = listaMarca;
+            }
+
+            dgvMarcas.DataSource = null;
+            dgvMarcas.DataSource = listaFiltrada;
         }
     }
 }
