@@ -235,5 +235,21 @@ namespace Presentación
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        // ------------------------------------------------------------
+
+        private void btnMarcas_Click(object sender, EventArgs e)
+        {
+            FormMarca gestion = new FormMarca();
+            gestion.ShowDialog();
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FormCategoria gestion = new FormCategoria();
+            gestion.ShowDialog();
+        }
+
+        
     }
 }

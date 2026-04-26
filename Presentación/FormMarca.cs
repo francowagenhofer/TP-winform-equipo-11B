@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace Presentación
 {
     public partial class FormMarca : Form
     {
+        private List<Marca> listaMarca;
+
         public FormMarca()
         {
             InitializeComponent();
@@ -19,8 +23,24 @@ namespace Presentación
 
         private void FormMarca_Load(object sender, EventArgs e)
         {
-
+            cargar();
         }
+
+        private void cargar()
+        {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+
+            try
+            {
+                listaMarca = marcaNegocio.listarMarcas();
+                dgvMarcas.DataSource = listaMarca;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {

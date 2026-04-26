@@ -30,7 +30,7 @@
         {
             this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpListado = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.dgvMarcas = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tlp1.SuspendLayout();
             this.tlpListado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -77,7 +77,7 @@
             this.tlpListado.ColumnCount = 1;
             this.tlpListado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpListado.Controls.Add(this.dgvArticulos, 0, 0);
+            this.tlpListado.Controls.Add(this.dgvMarcas, 0, 0);
             this.tlpListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpListado.Location = new System.Drawing.Point(39, 121);
             this.tlpListado.Name = "tlpListado";
@@ -86,23 +86,23 @@
             this.tlpListado.Size = new System.Drawing.Size(521, 243);
             this.tlpListado.TabIndex = 0;
             // 
-            // dgvArticulos
+            // dgvMarcas
             // 
-            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvArticulos.Location = new System.Drawing.Point(10, 10);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(10);
-            this.dgvArticulos.MultiSelect = false;
-            this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.ReadOnly = true;
-            this.dgvArticulos.RowHeadersWidth = 51;
-            this.dgvArticulos.RowTemplate.Height = 24;
-            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(501, 223);
-            this.dgvArticulos.StandardTab = true;
-            this.dgvArticulos.TabIndex = 0;
-            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            this.dgvMarcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMarcas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMarcas.Location = new System.Drawing.Point(10, 10);
+            this.dgvMarcas.Margin = new System.Windows.Forms.Padding(10);
+            this.dgvMarcas.MultiSelect = false;
+            this.dgvMarcas.Name = "dgvMarcas";
+            this.dgvMarcas.ReadOnly = true;
+            this.dgvMarcas.RowHeadersWidth = 51;
+            this.dgvMarcas.RowTemplate.Height = 24;
+            this.dgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMarcas.Size = new System.Drawing.Size(501, 223);
+            this.dgvMarcas.StandardTab = true;
+            this.dgvMarcas.TabIndex = 0;
+            this.dgvMarcas.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -278,7 +278,7 @@
             this.tlp1.ResumeLayout(false);
             this.tlp1.PerformLayout();
             this.tlpListado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -292,7 +292,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tlp1;
         private System.Windows.Forms.TableLayoutPanel tlpListado;
-        private System.Windows.Forms.DataGridView dgvArticulos;
+        private System.Windows.Forms.DataGridView dgvMarcas;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnAgregar;
