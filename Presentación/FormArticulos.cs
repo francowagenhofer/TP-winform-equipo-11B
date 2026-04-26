@@ -83,7 +83,6 @@ namespace Presentación
             cargar();
         }
 
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
@@ -98,7 +97,12 @@ namespace Presentación
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
+            FormDetalle detalle = new FormDetalle(seleccionado);
+            detalle.ShowDialog();
+            cargar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

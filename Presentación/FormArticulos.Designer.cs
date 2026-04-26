@@ -360,14 +360,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1217, 823);
             this.Controls.Add(this.tlp1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.IsMdiContainer = true;
             this.MaximumSize = new System.Drawing.Size(1235, 870);
             this.MinimumSize = new System.Drawing.Size(1235, 870);
             this.Name = "FormArticulos";
             this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catálogo de Artículos";
             this.Load += new System.EventHandler(this.FormArticulos_Load);
             this.tlp1.ResumeLayout(false);

@@ -429,6 +429,7 @@
             this.MinimumSize = new System.Drawing.Size(1235, 870);
             this.Name = "FormArticulo";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Artículo";
             this.Load += new System.EventHandler(this.FormArticulo_Load);
             this.tlp1.ResumeLayout(false);
