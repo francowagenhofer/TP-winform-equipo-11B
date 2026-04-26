@@ -164,8 +164,6 @@ namespace Presentación
             listaImagenes.DisplayMember = "ImagenUrl";
         }
 
-
-        // falta modificar
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -184,7 +182,6 @@ namespace Presentación
                 articulo.Categoria = (Categoria)cbCategoria.SelectedItem;
 
                 articulo.Imagenes = imagenesArticulo;
-
 
                 if (articulo.Id != 0)
                 {
@@ -206,7 +203,6 @@ namespace Presentación
                 {
                     articulo.Id = negocio.agregarArticulo(articulo);
 
-
                     foreach (Imagen img in imagenesArticulo)
                     {
                         img.IdArticulo = articulo.Id;
@@ -217,13 +213,13 @@ namespace Presentación
                 }
 
                 Close();
-
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

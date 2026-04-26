@@ -65,8 +65,11 @@ namespace Datos
 
         public int ejecutarScalar()
         {
+            comando.Connection = conexion;
+
             try
             {
+                conexion.Open();
                 return Convert.ToInt32(comando.ExecuteScalar());
             }
             catch (Exception ex)
