@@ -151,6 +151,7 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -166,6 +167,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -180,6 +182,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -258,6 +261,7 @@
             this.btnLimpiarFiltro.TabIndex = 3;
             this.btnLimpiarFiltro.Text = "Limpiar";
             this.btnLimpiarFiltro.UseVisualStyleBackColor = true;
+            this.btnLimpiarFiltro.Click += new System.EventHandler(this.btnLimpiarFiltro_Click);
             // 
             // FormCategoria
             // 
@@ -269,6 +273,7 @@
             this.MinimumSize = new System.Drawing.Size(620, 530);
             this.Name = "FormCategoria";
             this.Text = "FormCategoria";
+            this.Load += new System.EventHandler(this.FormCategoria_Load);
             this.tlp1.ResumeLayout(false);
             this.tlp1.PerformLayout();
             this.tlpListado.ResumeLayout(false);
