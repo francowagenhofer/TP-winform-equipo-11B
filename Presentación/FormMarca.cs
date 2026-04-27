@@ -15,10 +15,12 @@ namespace Presentación
     public partial class FormMarca : Form
     {
         private List<Marca> listaMarca;
+        private BindingSource bindingSource;
 
         public FormMarca()
         {
             InitializeComponent();
+            bindingSource = new BindingSource();
         }
 
         private void FormMarca_Load(object sender, EventArgs e)
@@ -34,17 +36,14 @@ namespace Presentación
             {
                 listaMarca = marcaNegocio.listarMarcas();
 
-                dgvMarcas.DataSource = null;
-                dgvMarcas.DataSource = listaMarca;
+                bindingSource.DataSource = listaMarca;
+                dgvMarcas.DataSource = bindingSource;
 
                 dgvMarcas.AllowUserToAddRows = true;
                 dgvMarcas.ReadOnly = false;
-
                 dgvMarcas.Columns["Id"].ReadOnly = true;
-
                 dgvMarcas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dgvMarcas.MultiSelect = false;
-
             }
             catch (Exception ex)
             {
@@ -52,12 +51,43 @@ namespace Presentación
             }
         }
 
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            MarcaNegocio negocio = new MarcaNegocio();
+            Marca nuevaMarca = new Marca();
 
+            try
+            {
+                if (dgvMarcas.CurrentRow == null)
+                    return;
+
+                if (dgvMarcas.CurrentRow.IsNewRow)
+                {
+                    MessageBox.Show("Seleccioná la fila que querés agregar.");
+                    return;
+                }
+
+                string descripcion = dgvMarcas.CurrentRow.Cells["Descripcion"].Value?.ToString();
+
+                if (string.IsNullOrWhiteSpace(descripcion))
+                {
+                    MessageBox.Show("Ingresá una descripción para la marca");
+                    return;
+                }
+
+                nuevaMarca.Descripcion = descripcion;
+                negocio.agregarMarca(nuevaMarca);
+
+                MessageBox.Show("Marca agregada exitosamente");
+
+                cargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar: " + ex.Message);
+            }
         }
-
+        
         private void btnModificar_Click(object sender, EventArgs e)
         {
             MarcaNegocio negocio = new MarcaNegocio();
@@ -65,7 +95,23 @@ namespace Presentación
 
             try
             {
+                if (dgvMarcas.CurrentRow == null)
+                    return;
+
+                if (dgvMarcas.CurrentRow.IsNewRow)
+                {
+                    MessageBox.Show("No se puede modificar una fila vacía.");
+                    return;
+                }
+
                 seleccionado = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+
+                if (seleccionado.Id == 0)
+                {
+                    MessageBox.Show("No se puede modificar una marca que no existe.");
+                    return;
+                }
+
                 negocio.modificarMarca(seleccionado);
 
                 MessageBox.Show("Modificado exitosamente");
@@ -84,32 +130,48 @@ namespace Presentación
 
             try
             {
+                if (dgvMarcas.CurrentRow == null)
+                    return;
+
+                if (dgvMarcas.CurrentRow.IsNewRow)
+                {
+                    MessageBox.Show("No se puede eliminar una fila vacía.");
+                    return;
+                }
+
+                seleccionado = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+
+                if (seleccionado.Id == 0)
+                {
+                    MessageBox.Show("No se puede eliminar una marca que no existe.");
+                    return;
+                }
+
                 DialogResult respuesta = MessageBox.Show(
-                    "¿De verdad querés eliminar la marca?", "Eliminando",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    "¿De verdad querés eliminar la marca?",
+                    "Eliminando",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    seleccionado = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
-
                     negocio.eliminarMarca(seleccionado.Id);
 
                     MessageBox.Show("Eliminado exitosamente");
+
                     cargar();
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void btnLimpiarFiltro_Click(object sender, EventArgs e)
         {
             tbFiltroRapido.Clear();
-            dgvMarcas.DataSource = null;
-            dgvMarcas.DataSource = listaMarca;
+            bindingSource.DataSource = listaMarca;
         }
 
         private void tbFiltroRapido_TextChanged(object sender, EventArgs e)
@@ -119,15 +181,14 @@ namespace Presentación
 
             if (filtro.Length >= 1)
             {
-               listaFiltrada = listaMarca.FindAll(x =>  x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Id.ToString().Contains(filtro.Normalize()));
+                listaFiltrada = listaMarca.FindAll(x => x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Id.ToString().Contains(filtro.Normalize()));
             }
             else
             {
                 listaFiltrada = listaMarca;
             }
 
-            dgvMarcas.DataSource = null;
-            dgvMarcas.DataSource = listaFiltrada;
+            bindingSource.DataSource = listaFiltrada;
         }
     }
 }

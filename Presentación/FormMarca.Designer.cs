@@ -83,6 +83,7 @@
             this.tlpListado.Name = "tlpListado";
             this.tlpListado.RowCount = 1;
             this.tlpListado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpListado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpListado.Size = new System.Drawing.Size(521, 243);
             this.tlpListado.TabIndex = 0;
             // 
@@ -95,6 +96,7 @@
             this.dgvMarcas.Margin = new System.Windows.Forms.Padding(10);
             this.dgvMarcas.MultiSelect = false;
             this.dgvMarcas.Name = "dgvMarcas";
+            this.dgvMarcas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMarcas.RowHeadersWidth = 51;
             this.dgvMarcas.RowTemplate.Height = 24;
             this.dgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
